@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="test-area">
+    <a id="copyCode" class="btn" href="javascript:void(0)" onclick="goWechat()">
+        微信号：idweiwei2011
+    </a>
+</div>
+<!-- clipboard 实现复制微信号 -->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/clipboard.min.js"></script>
+<!-- 小弹框 -->
+<script src="./js/mdialog.js"></script>
+<link href="./css/mdialog.css" rel="stylesheet">
+<script>
+    /* 复制微信 */
+    var clipboard = new ClipboardJS(".btn", {
+        text: function () {
+            return "idweiwei2011";
+        }
+    });
+
+    /* 跳转 */
+    function goWechat() {
+        new TipBox({
+            type: 'success',
+            str: '微信号复制成功<br >打开微信添加好友',
+            hasBtn: true
+        });
+        setTimeout('window.location.href="weixin://"', 1500);
+    }
+
+</script>
+</body>
+</html>
